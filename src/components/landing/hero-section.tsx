@@ -1,18 +1,14 @@
 import type { FC, ReactNode } from 'react'
 
 import { useRef } from 'react'
-import { ArrowDown, ArrowUpRight, MessageCircle } from 'lucide-react'
+import { ArrowDown, MessageCircle } from 'lucide-react'
 import { CtaButton } from '@/components/generals/cta-button'
 import { WhatsAppChat } from '@/components/landing/whatsapp-chat'
-import { heroChat, heroCopy } from '@/constants/copy'
+import { heroCopy } from '@/constants/copy'
 import { useScrollProgress } from '@/hooks/use-scroll-progress'
 import { APP_URL, whatsAppHref } from '@/constants/site'
 
-const HERO_FACTS = [
-    { value: 'No app', label: 'for customers' },
-    { value: 'Same', label: 'WhatsApp number' },
-    { value: '7', label: 'languages' }
-]
+const HERO_FACTS = ['No app for customers', 'The same WhatsApp number', 'Seven languages']
 
 export const HeroSection: FC = (): ReactNode => {
     const heroRef = useRef<HTMLElement>(null)
@@ -24,119 +20,96 @@ export const HeroSection: FC = (): ReactNode => {
             ref={heroRef}
             id='hero'
             aria-labelledby='hero-title'
-            className='relative isolate overflow-hidden pt-28 pb-14 sm:pt-32 lg:pt-36'
+            className='grain relative isolate flex min-h-[100svh] flex-col overflow-hidden pt-24 sm:pt-28 lg:pt-32'
         >
             <div aria-hidden className='pointer-events-none absolute inset-0 -z-10'>
-                <div className='halftone absolute top-[6%] right-[-8%] h-[62%] w-[56%] opacity-[0.16]' />
-                <div className='absolute top-[16%] right-[18%] h-[360px] w-[360px] rounded-full bg-[radial-gradient(closest-side,rgba(200,225,221,0.55),transparent_72%)] blur-2xl' />
-                <div className='absolute inset-y-0 left-1/2 hidden w-px bg-ink/[0.06] lg:block' />
+                <div className='absolute top-[-18%] left-[8%] h-[52vh] w-[52vw] rounded-full bg-[radial-gradient(closest-side,rgba(200,225,221,0.5),transparent_72%)] blur-3xl' />
+                <div className='absolute top-[30%] right-[-10%] h-[46vh] w-[42vw] rounded-full bg-[radial-gradient(closest-side,rgba(200,188,174,0.32),transparent_72%)] blur-3xl' />
+                <div className='halftone absolute top-[8%] right-[2%] h-[52%] w-[46%] opacity-[0.07]' />
             </div>
 
-            <div className='mx-auto w-full max-w-[1439px] px-5 sm:px-8'>
-                <div className='grid items-center gap-14 lg:min-h-[calc(100svh-8rem)] lg:grid-cols-[0.94fr_1.06fr] lg:gap-6'>
-                    <div className='relative z-10 max-w-[640px]'>
-                        <p className='flex items-center gap-2 font-mono text-[11px] tracking-[0.18em] text-ink/55 uppercase motion-safe:animate-rise-soft'>
-                            <span className='inline-block size-1.5 rounded-full bg-lime' />
+            <div className='mx-auto w-full max-w-[1439px] flex-1 px-5 sm:px-8'>
+                <div className='grid items-start gap-12 pt-4 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-12 lg:pt-8'>
+                    <div className='max-w-[680px]'>
+                        <p className='eyebrow flex items-center gap-2.5 text-ink/50 motion-safe:animate-rise-soft'>
+                            <span className='inline-block size-1.5 rounded-full bg-teal' />
                             {heroCopy.eyebrow}
                         </p>
 
-                        <h1
-                            id='hero-title'
-                            className='mt-7 font-heading text-[clamp(2.85rem,6vw,5.9rem)] leading-[0.98] font-normal tracking-[-0.045em] text-balance text-ink motion-safe:animate-rise-soft [animation-delay:80ms]'
-                        >
+                        <h1 id='hero-title' className='display-xl mt-6 text-ink text-balance motion-safe:animate-rise-soft [animation-delay:60ms]'>
                             {heroCopy.titleLead}
                             <br />
-                            <span className='text-serif-accent italic'>{heroCopy.titleAccent}</span>
+                            <span className='text-teal-deep'>{heroCopy.titleAccent}</span>
                         </h1>
 
-                        <p className='mt-7 max-w-[42ch] text-[16px] leading-[1.55] text-ink/65 motion-safe:animate-rise-soft sm:text-[17px] [animation-delay:160ms]'>
+                        <p className='mt-6 max-w-[42ch] text-[17px] leading-[1.45] tracking-[-0.01em] text-ink/65 motion-safe:animate-rise-soft sm:text-[19px] lg:text-[21px] [animation-delay:140ms]'>
                             {heroCopy.subtitle}
                         </p>
 
-                        <div className='mt-9 flex flex-col items-stretch gap-3 motion-safe:animate-rise-soft sm:flex-row sm:items-center [animation-delay:240ms]'>
-                            <CtaButton
-                                href={APP_URL}
-                                className='h-[52px] pr-2 pl-6'
-                                icon={
-                                    <span className='ml-1 flex size-8 items-center justify-center rounded-full bg-mint text-ink'>
-                                        <ArrowUpRight aria-hidden className='size-4' />
-                                    </span>
-                                }
-                            >
+                        <div className='mt-8 flex flex-col items-stretch gap-2.5 motion-safe:animate-rise-soft sm:flex-row sm:items-center [animation-delay:220ms]'>
+                            <CtaButton href={APP_URL} className='h-11 px-6 text-[14px] font-medium'>
                                 {heroCopy.primaryCta}
                             </CtaButton>
 
                             <CtaButton
                                 href={whatsAppHref()}
                                 variant='light'
-                                className='h-[52px]'
+                                className='h-11 px-6 text-[14px] font-medium'
                                 icon={<MessageCircle aria-hidden className='size-4' />}
                             >
                                 {heroCopy.secondaryCta}
                             </CtaButton>
                         </div>
 
-                        <p className='mt-6 font-mono text-[11.5px] tracking-tight text-ink/45 motion-safe:animate-rise-soft [animation-delay:320ms]'>
+                        <p className='mt-5 text-[13px] tracking-[-0.01em] text-ink/45 motion-safe:animate-rise-soft [animation-delay:300ms]'>
                             {heroCopy.note}
                         </p>
-
-                        <dl className='mt-10 grid max-w-[460px] grid-cols-3 gap-4 border-t border-ink/10 pt-5 motion-safe:animate-rise-soft [animation-delay:400ms]'>
-                            {HERO_FACTS.map((fact) => (
-                                <div key={fact.label}>
-                                    <dt className='font-heading text-[22px] leading-none text-ink'>{fact.value}</dt>
-                                    <dd className='mt-1.5 text-[12px] leading-snug text-ink/50'>{fact.label}</dd>
-                                </div>
-                            ))}
-                        </dl>
                     </div>
 
-                    <div
-                        className='relative mx-auto w-full max-w-[680px] pb-8 sm:pb-14 lg:pb-0'
-                        style={{ transform: 'translate3d(0, calc(var(--hero, 0) * -30px), 0)' }}
-                    >
+                    <div className='relative mx-auto hidden w-full max-w-[400px] motion-safe:animate-rise-soft lg:block [animation-delay:260ms]'>
                         <div
                             aria-hidden
-                            className='absolute top-[7%] right-[4%] h-[80%] w-[68%] -rotate-3 border border-ink/10 bg-mint sm:right-[10%]'
-                        >
-                            <div className='dot-grid absolute inset-0 opacity-25' />
-                        </div>
-
-                        <div className='relative z-10 mx-auto w-full max-w-[430px] motion-safe:animate-rise-soft [animation-delay:220ms]'>
+                            className='absolute -top-4 -right-4 h-full w-full rounded-[10px] border border-ink/10'
+                        />
+                        <div className='relative'>
                             <WhatsAppChat />
                         </div>
-
-                        <div className='ticket relative z-20 mx-auto mt-5 w-full max-w-[280px] -rotate-2 border border-ink/15 bg-paper p-5 motion-safe:animate-rise-soft sm:absolute sm:bottom-4 sm:left-0 sm:mt-0 sm:-rotate-3 [animation-delay:520ms]'>
-                            <div className='flex items-center justify-between font-mono text-[10px] tracking-[0.16em] text-ink/50 uppercase'>
-                                <span>{heroChat.order.title}</span>
-                                <span>{heroChat.order.count}</span>
-                            </div>
-                            <p className='mt-3 font-heading text-[20px] leading-tight text-ink'>{heroChat.order.items}</p>
-                            <div className='mt-4 flex items-end justify-between border-t border-dashed border-ink/15 pt-3'>
-                                <span className='font-mono text-[10px] tracking-[0.12em] text-ink/45 uppercase'>
-                                    {heroChat.order.timer}
-                                </span>
-                                <span className='font-heading text-[26px] leading-none text-ink'>{heroChat.order.total}</span>
-                            </div>
-                        </div>
-
-                        <div className='absolute top-[2%] -right-1 z-20 hidden items-center gap-2 border border-ink/12 bg-paper/90 px-3 py-2 font-mono text-[10px] tracking-[0.12em] text-ink/60 uppercase backdrop-blur-[5px] motion-safe:animate-float-soft md:flex'>
-                            <span className='size-1.5 rounded-full bg-teal' />
-                            Voice note read
-                        </div>
-
-                        <p className='absolute top-1/2 -right-8 hidden origin-right rotate-90 font-mono text-[10px] tracking-[0.24em] text-ink/35 uppercase lg:block'>
-                            Live on WhatsApp
-                        </p>
                     </div>
                 </div>
+            </div>
 
-                <a
-                    href='#manifesto'
-                    className='mt-10 flex w-fit items-center gap-2 font-mono text-[10.5px] tracking-[0.16em] text-ink/40 uppercase transition-colors hover:text-teal-deep focus-visible:ring-2 focus-visible:ring-iris focus-visible:outline-none lg:mt-0'
+            <div className='mx-auto w-full max-w-[1439px] px-5 pb-8 sm:px-8 sm:pb-10'>
+                <div
+                    className='flex justify-center pt-10'
+                    style={{ transform: 'translate3d(0, calc(var(--hero, 0) * -34px), 0)' }}
                 >
-                    Keep scrolling
-                    <ArrowDown aria-hidden className='size-3.5 motion-safe:animate-bounce' />
-                </a>
+                    <span className='flex items-baseline justify-center text-ink motion-safe:animate-intro-settle [animation-delay:160ms]'>
+                        <span className='font-heading text-[clamp(3rem,9.2vw,8.25rem)] leading-[0.82] font-normal tracking-[-0.055em] lowercase'>
+                            dukaan
+                        </span>
+                        <span className='ml-[0.14em] font-sans text-[clamp(0.72rem,1.7vw,1.5rem)] leading-none font-medium tracking-[0.16em] text-teal-deep uppercase'>
+                            .ai
+                        </span>
+                    </span>
+                </div>
+
+                <div className='mt-8 flex flex-col gap-2 border-t border-ink/10 pt-4 sm:mt-10 sm:flex-row sm:items-center sm:justify-between'>
+                    <ul className='flex flex-wrap items-center gap-x-6 gap-y-1.5'>
+                        {HERO_FACTS.map((fact) => (
+                            <li key={fact} className='eyebrow text-ink/45'>
+                                {fact}
+                            </li>
+                        ))}
+                    </ul>
+
+                    <a
+                        href='#manifesto'
+                        className='group inline-flex w-fit items-center gap-2 text-[11.5px] tracking-[0.14em] text-ink/40 uppercase transition-colors hover:text-teal-deep focus-visible:ring-2 focus-visible:ring-iris focus-visible:outline-none'
+                    >
+                        Keep scrolling
+                        <ArrowDown aria-hidden className='size-3.5 transition-transform group-hover:translate-y-0.5 motion-safe:animate-float-soft' />
+                    </a>
+                </div>
             </div>
         </section>
     )

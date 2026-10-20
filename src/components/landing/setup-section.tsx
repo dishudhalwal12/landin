@@ -3,7 +3,6 @@ import type { FC, ReactNode } from 'react'
 import { ArrowUpRight, MessageCircle } from 'lucide-react'
 import { Reveal } from '@/components/generals/reveal'
 import { CtaButton } from '@/components/generals/cta-button'
-import { SectionBadge } from '@/components/landing/section-badge'
 import { TerminalCard } from '@/components/landing/terminal-card'
 import { setupCopy } from '@/constants/copy'
 import { APP_URL, whatsAppHref } from '@/constants/site'
@@ -15,47 +14,47 @@ export const SetupSection: FC = (): ReactNode => {
             aria-labelledby='setup-title'
             className='relative isolate overflow-hidden py-24 sm:py-32'
         >
-            <div className='mx-auto w-full max-w-[1199px] px-5 sm:px-8'>
+            <div className='mx-auto w-full max-w-[1439px] px-5 sm:px-8'>
                 <Reveal className='grid gap-6 border-b border-ink/10 pb-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16'>
                     <div>
-                        <SectionBadge>{setupCopy.eyebrow}</SectionBadge>
+                        <p className='eyebrow text-ink/45'>{setupCopy.eyebrow}</p>
 
                         <h2
                             id='setup-title'
-                            className='mt-6 max-w-[20ch] font-heading text-[clamp(2.3rem,4.5vw,4.2rem)] leading-[1.02] font-normal tracking-[-0.04em] text-balance text-ink'
+                            className='display-xl mt-5 max-w-[18ch] text-ink text-balance'
                         >
                             {setupCopy.title}
                         </h2>
                     </div>
 
-                    <p className='max-w-[44ch] text-[16.5px] leading-relaxed text-ink/55 sm:text-[17.5px] lg:justify-self-end'>
+                    <p className='max-w-[42ch] text-[16.5px] leading-[1.5] tracking-[-0.01em] text-ink/60 sm:text-[18px] lg:justify-self-end'>
                         {setupCopy.body}
                     </p>
                 </Reveal>
 
-                <ol className='mt-10 grid gap-px border border-ink/15 bg-ink/15 sm:grid-cols-3'>
+                <ol className='mt-10 grid gap-px overflow-hidden rounded-[8px] border border-ink/12 bg-ink/12 sm:grid-cols-3'>
                     {setupCopy.steps.map((step, index) => (
-                        <Reveal key={step.number} delay={index * 80}>
-                            <li className='group h-full bg-paper p-6 transition-colors hover:bg-sage/40 sm:p-7'>
+                        <li key={step.number} className='group h-full bg-paper transition-colors duration-300 hover:bg-[#f6f4ec]'>
+                            <Reveal delay={index * 80} className='h-full p-6 sm:p-7 lg:p-8'>
                                 <span className='font-mono text-[11px] tracking-[0.14em] text-teal-deep'>
                                     {step.number}
                                 </span>
 
-                                <h3 className='mt-5 font-heading text-[22px] leading-tight font-normal tracking-[-0.03em] text-ink'>
+                                <h3 className='mt-6 max-w-[20ch] font-heading text-[22px] leading-[1.1] font-normal tracking-[-0.03em] text-ink'>
                                     {step.title}
                                 </h3>
 
-                                <p className='mt-2.5 text-[14px] leading-relaxed text-ink/55'>
+                                <p className='mt-2.5 max-w-[34ch] text-[14px] leading-[1.55] text-ink/55'>
                                     {step.body}
                                 </p>
-                            </li>
-                        </Reveal>
+                            </Reveal>
+                        </li>
                     ))}
                 </ol>
 
                 <Reveal delay={120} className='mt-4'>
-                    <div className='grid border border-ink/15 bg-paper lg:grid-cols-[0.85fr_1.15fr]'>
-                        <div className='relative flex min-w-0 flex-col justify-between overflow-hidden border-b border-ink/15 bg-mint p-6 sm:p-8 lg:border-r lg:border-b-0'>
+                    <div className='grid overflow-hidden rounded-[8px] border border-ink/12 bg-paper lg:grid-cols-[0.85fr_1.15fr]'>
+                        <div className='relative flex min-w-0 flex-col justify-between overflow-hidden border-b border-ink/12 bg-sage/45 p-6 sm:p-8 lg:border-r lg:border-b-0'>
                             <div
                                 aria-hidden
                                 className='halftone pointer-events-none absolute inset-0 opacity-[0.08]'

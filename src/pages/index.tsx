@@ -3,13 +3,14 @@ import type { FC, ReactNode } from 'react'
 import { Seo } from '@/components/generals/seo'
 import { Layout } from '@/components/generals/layout'
 import { HeroSection } from '@/components/landing/hero-section'
-import { ScrollManifesto } from '@/components/landing/scroll-manifesto'
-import { ProofSection } from '@/components/landing/proof-section'
-import { WorkflowSection } from '@/components/landing/workflow-section'
+import { ShopMarquee } from '@/components/landing/shop-marquee'
+import { EcosystemGrid } from '@/components/landing/ecosystem-grid'
+import { ExpertiseCollage } from '@/components/landing/expertise-collage'
+import { StatsBand } from '@/components/landing/stats-band'
+import { TestimonialStack } from '@/components/landing/testimonial-stack'
+import { TasteSection } from '@/components/landing/taste-section'
+import { BigTypeScrubber } from '@/components/landing/big-type-scrubber'
 import { FeatureGrid } from '@/components/landing/feature-grid'
-import { OwnerApproval } from '@/components/landing/owner-approval'
-import { DashboardMock } from '@/components/landing/dashboard-mock'
-import { BeforeAfter } from '@/components/landing/before-after'
 import { SetupSection } from '@/components/landing/setup-section'
 import { FaqSection } from '@/components/landing/faq-section'
 import { CtaSection } from '@/components/landing/cta-section'
@@ -39,13 +40,14 @@ const Home: FC = (): ReactNode => {
             />
 
             <HeroSection />
-            <ScrollManifesto />
-            <ProofSection />
-            <WorkflowSection />
+            <ShopMarquee />
+            <EcosystemGrid />
+            <ExpertiseCollage />
+            <StatsBand />
+            <TestimonialStack />
+            <TasteSection />
+            <BigTypeScrubber />
             <FeatureGrid />
-            <OwnerApproval />
-            <DashboardMock />
-            <BeforeAfter />
             <SetupSection />
             <FaqSection />
             <CtaSection />

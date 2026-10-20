@@ -259,3 +259,59 @@ export const footerCopy = {
     copyright: '© 2026 Dukaan.AI',
     note: 'Built in India for neighbourhood shops.'
 }
+
+export const collageLines = [
+    'They already have the app.',
+    'It is called WhatsApp.',
+    'Nobody installs anything.'
+]
+
+export const ecosystemCopy = {
+    eyebrow: 'What the shop runs on',
+    title: 'Meet the Dukaan.AI ecosystem',
+    body: 'One WhatsApp number, one dashboard and one stock ledger. The work of a shop, split into four quiet steps.'
+}
+
+export const networkCopy = {
+    eyebrow: 'The network',
+    title: 'Built on real shop counters',
+    body: 'Dukaan.AI works with the shops that already exist on your street — not with a catalogue of imaginary ones.',
+    note: 'With real market experience'
+}
+
+export const bigTypeCopy = {
+    lead: 'Close the',
+    accent: 'notebook.',
+    body: 'Stock used to live in your head. Now it counts itself down, order by order.',
+    trailing: 'Execution is free. Judgment is yours.'
+}
+
+export const tasteCopy = {
+    eyebrow: 'Still your shop',
+    title: 'Connecting with the missing signal: trust',
+    body: 'A customer sends a message and gets a written order back. Not a guess, not an app to install — the same shop, answering in the same language.',
+    rolesLabel: 'Shops already on the counter',
+    stats: [
+        { value: '500M+', label: 'Indian phones with WhatsApp' },
+        { value: '400+', label: 'Catalog items a shop starts with' },
+        { value: '7', label: 'Languages on day one' }
+    ]
+}
+
+export const testimonials = [
+    {
+        quote: 'Earlier the order was a voice note I had to replay twice. Now it arrives as a list with a total, and I only have to say yes.',
+        name: 'Rakesh Sharma',
+        role: 'Sharma Kirana, Jaipur'
+    },
+    {
+        quote: 'The stock used to be in my head. It went wrong every second week. Now the count is on the screen and it moves on its own.',
+        name: 'Meena Patel',
+        role: 'Dairy counter, Ahmedabad'
+    },
+    {
+        quote: 'I did not want another app. My customers did not want one either. This one just lives inside the WhatsApp they already had open.',
+        name: 'Arjun Nair',
+        role: 'Fruits & vegetables, Kochi'
+    }
+]

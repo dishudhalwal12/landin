@@ -1,44 +1,58 @@
+import type { ArtTone } from '@/components/landing/artwork-panel'
 import type { FC, ReactNode } from 'react'
 
-import { Store } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { ArtworkPanel } from '@/components/landing/artwork-panel'
 import { shopTypes } from '@/constants/copy'
 
-const Track: FC<{ hidden?: boolean }> = ({ hidden }): ReactNode => {
-    return (
-        <ul aria-hidden={hidden} className='flex shrink-0 items-center'>
-            {shopTypes.map((shop) => (
-                <li key={shop} className='flex items-center'>
-                    <span
-                        className={cn(
-                            'inline-flex items-center gap-2.5 border border-ink/15 bg-transparent px-5 py-2.5 text-[13px] font-medium whitespace-nowrap sm:text-[14px]',
-                            shop === 'Your shop' ? 'text-teal-deep' : 'text-ink/60'
-                        )}
-                    >
-                        <Store aria-hidden className='size-3.5 opacity-60' />
-                        {shop}
-                    </span>
+const TONES: ArtTone[] = ['teal', 'gold', 'crimson', 'sage', 'clay', 'night', 'teal', 'gold']
 
-                    <span aria-hidden className='mx-3 size-1 rounded-full bg-ink/20' />
-                </li>
+const CARDS = shopTypes.flatMap((shop, index) => [
+    { label: shop, tone: TONES[index % TONES.length], id: `${shop}-a` },
+    { label: shop, tone: TONES[(index + 3) % TONES.length], id: `${shop}-b` }
+])
+
+const Track: FC<{ reverse?: boolean; offset?: number }> = ({ reverse, offset = 0 }): ReactNode => {
+    const items = reverse ? [...CARDS].reverse() : CARDS
+
+    return (
+        <div className='flex w-max shrink-0'>
+            {[0, 1].map((copy) => (
+                <ul key={copy} aria-hidden={copy === 1} className='flex shrink-0 items-center'>
+                    {items.map((card, index) => (
+                        <li key={`${card.id}-${copy}`} className='px-1.5'>
+                            <div className='group relative h-[118px] w-[186px] overflow-hidden rounded-[6px] sm:h-[136px] sm:w-[214px]'>
+                                <ArtworkPanel
+                                    tone={card.tone}
+                                    className='h-full w-full transition-transform duration-700 group-hover:scale-[1.06]'
+                                />
+
+                                <span className='absolute inset-x-3 bottom-2.5 z-10 text-[11.5px] tracking-[0.02em] text-paper/85'>
+                                    {String((index + offset) % 9 + 1).padStart(2, '0')} — {card.label}
+                                </span>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
             ))}
-        </ul>
+        </div>
     )
 }
 
-// A slow strip of the catalog types the app starts with. The list repeats once,
-// and the track shifts by half its width, so the loop has no visible seam.
 export const ShopMarquee: FC = (): ReactNode => {
     return (
-        <div
-            className='group relative mt-10 overflow-hidden py-2 [mask-image:linear-gradient(to_right,transparent,#000_10%,#000_90%,transparent)] sm:mt-12'
-            aria-label='Shop types Dukaan.AI starts with'
-            role='group'
-        >
-            <div className='flex w-max motion-safe:animate-marquee group-hover:[animation-play-state:paused]'>
-                <Track />
-                <Track hidden />
+        <section aria-label='Shops using Dukaan.AI' className='relative isolate overflow-hidden border-y border-ink/10 bg-paper py-5'>
+            <div className='pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-paper to-transparent sm:w-28' />
+            <div className='pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-paper to-transparent sm:w-28' />
+
+            <div className='flex flex-col gap-3'>
+                <div className='flex motion-safe:animate-marquee'>
+                    <Track />
+                </div>
+
+                <div className='flex [animation-direction:reverse] motion-safe:animate-marquee'>
+                    <Track reverse offset={4} />
+                </div>
             </div>
-        </div>
+        </section>
     )
 }
