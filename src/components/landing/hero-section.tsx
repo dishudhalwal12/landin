@@ -20,16 +20,15 @@ export const HeroSection: FC = (): ReactNode => {
             ref={heroRef}
             id='hero'
             aria-labelledby='hero-title'
-            className='grain relative isolate flex min-h-[100svh] flex-col overflow-hidden pt-24 sm:pt-28 lg:pt-32'
+            className='grain relative isolate flex min-h-[100svh] flex-col overflow-hidden pt-20 sm:pt-24 lg:pt-28'
         >
             <div aria-hidden className='pointer-events-none absolute inset-0 -z-10'>
                 <div className='absolute top-[-18%] left-[8%] h-[52vh] w-[52vw] rounded-full bg-[radial-gradient(closest-side,rgba(200,225,221,0.5),transparent_72%)] blur-3xl' />
                 <div className='absolute top-[30%] right-[-10%] h-[46vh] w-[42vw] rounded-full bg-[radial-gradient(closest-side,rgba(200,188,174,0.32),transparent_72%)] blur-3xl' />
-                <div className='halftone absolute top-[8%] right-[2%] h-[52%] w-[46%] opacity-[0.07]' />
             </div>
 
             <div className='mx-auto w-full max-w-[1439px] flex-1 px-5 sm:px-8'>
-                <div className='grid items-start gap-12 pt-4 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-12 lg:pt-8'>
+                <div className='grid items-start gap-12 pt-2 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-12 lg:pt-4'>
                     <div className='max-w-[680px]'>
                         <p className='eyebrow flex items-center gap-2.5 text-ink/50 motion-safe:animate-rise-soft'>
                             <span className='inline-block size-1.5 rounded-full bg-teal' />
@@ -80,7 +79,7 @@ export const HeroSection: FC = (): ReactNode => {
 
             <div className='mx-auto w-full max-w-[1439px] px-5 pb-8 sm:px-8 sm:pb-10'>
                 <div
-                    className='flex justify-center pt-10'
+                    className='flex justify-center pt-4'
                     style={{ transform: 'translate3d(0, calc(var(--hero, 0) * -34px), 0)' }}
                 >
                     <span className='flex items-baseline justify-center text-ink motion-safe:animate-intro-settle [animation-delay:160ms]'>
@@ -93,10 +92,10 @@ export const HeroSection: FC = (): ReactNode => {
                     </span>
                 </div>
 
-                <div className='mt-8 flex flex-col gap-2 border-t border-ink/10 pt-4 sm:mt-10 sm:flex-row sm:items-center sm:justify-between'>
+                <div className='mt-6 flex flex-col gap-2 border-t border-ink/10 pt-4 sm:mt-8 sm:flex-row sm:items-center sm:justify-between'>
                     <ul className='flex flex-wrap items-center gap-x-6 gap-y-1.5'>
                         {HERO_FACTS.map((fact) => (
-                            <li key={fact} className='eyebrow text-ink/45'>
+                            <li key={fact} className='eyebrow text-ink/55'>
                                 {fact}
                             </li>
                         ))}
@@ -104,7 +103,7 @@ export const HeroSection: FC = (): ReactNode => {
 
                     <a
                         href='#manifesto'
-                        className='group inline-flex w-fit items-center gap-2 text-[11.5px] tracking-[0.14em] text-ink/40 uppercase transition-colors hover:text-teal-deep focus-visible:ring-2 focus-visible:ring-iris focus-visible:outline-none'
+                        className='group inline-flex w-fit items-center gap-2 text-[11.5px] tracking-[0.14em] text-ink/50 uppercase transition-colors hover:text-teal-deep focus-visible:ring-2 focus-visible:ring-iris focus-visible:outline-none'
                     >
                         Keep scrolling
                         <ArrowDown aria-hidden className='size-3.5 transition-transform group-hover:translate-y-0.5 motion-safe:animate-float-soft' />

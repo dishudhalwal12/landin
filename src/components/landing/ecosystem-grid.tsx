@@ -46,6 +46,11 @@ export const EcosystemGrid: FC = (): ReactNode => {
                                     className='absolute inset-0 -z-10 transition-transform duration-[1100ms] ease-out group-hover:scale-[1.035]'
                                 />
 
+                                <div
+                                    aria-hidden
+                                    className='pointer-events-none absolute inset-0 z-[-5] bg-gradient-to-b from-night/40 via-night/5 to-night/75'
+                                />
+
                                 <div className='flex items-start justify-between gap-4'>
                                     <p className='eyebrow text-paper/80'>
                                         {step.number} <span className='mx-1.5 opacity-40'>/</span> {step.visual}
@@ -58,7 +63,7 @@ export const EcosystemGrid: FC = (): ReactNode => {
 
                                 <div className='mt-16'>
                                     <h3 className='display-md max-w-[15ch] text-paper text-balance'>{step.title}</h3>
-                                    <p className='mt-3 max-w-[36ch] text-[14px] leading-[1.5] text-paper/75 sm:text-[14.5px]'>
+                                    <p className='mt-4 max-w-[36ch] text-[14px] leading-[1.5] text-paper/75 sm:text-[14.5px]'>
                                         {step.body}
                                     </p>
                                 </div>

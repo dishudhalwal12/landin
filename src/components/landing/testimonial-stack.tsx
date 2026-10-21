@@ -4,9 +4,9 @@ import { Reveal } from '@/components/generals/reveal'
 import { testimonials } from '@/constants/copy'
 
 const SPINES = [
-    ['bg-night', 'bg-iris', 'bg-sage', 'bg-clay'],
-    ['bg-iris', 'bg-clay', 'bg-night', 'bg-sage'],
-    ['bg-clay', 'bg-sage', 'bg-iris', 'bg-night']
+    ['bg-night', 'bg-iris', 'bg-teal', 'bg-clay'],
+    ['bg-iris', 'bg-clay', 'bg-night', 'bg-teal'],
+    ['bg-clay', 'bg-teal', 'bg-iris', 'bg-night']
 ]
 
 export const TestimonialStack: FC = (): ReactNode => {

@@ -19,6 +19,7 @@ export const BigTypeScrubber: FC = (): ReactNode => {
         <section
             ref={sectionRef}
             aria-labelledby='big-type-title'
+            data-motion='scrub'
             className='relative isolate h-[220vh] bg-paper'
             style={{ '--p': 0.1 } as CSSProperties}
         >
@@ -61,7 +62,7 @@ export const BigTypeScrubber: FC = (): ReactNode => {
                                     }
                                     style={
                                         {
-                                            opacity: `min(calc(${t} * 6), calc((1 - ${t}) * 6), 1)`,
+                                            opacity: `max(0.12, min(calc(${t} * 6), calc((1 - ${t}) * 6), 1))`,
                                             transform: `translate3d(0, calc((1 - ${t}) * 26px), 0)`,
                                             willChange: 'opacity, transform'
                                         } as CSSProperties

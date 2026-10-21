@@ -18,13 +18,13 @@ export const TasteSection: FC = (): ReactNode => {
             />
             <div
                 aria-hidden
-                className='pointer-events-none absolute -right-[16%] -bottom-[28%] h-[62vh] w-[62vw] rounded-full bg-[radial-gradient(closest-side,rgba(10,22,26,0.6),transparent_72%)] blur-3xl'
+                className='pointer-events-none absolute -right-[16%] -bottom-[28%] h-[62vh] w-[62vw] rounded-full bg-[radial-gradient(closest-side,rgba(10,22,26,0.35),transparent_72%)] blur-3xl'
             />
 
             <div className='relative mx-auto w-full max-w-[1439px] px-5 sm:px-8'>
                 <div className='grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:gap-20'>
                     <Reveal>
-                        <p className='eyebrow text-paper/55'>{tasteCopy.eyebrow}</p>
+                        <p className='eyebrow text-paper/60'>{tasteCopy.eyebrow}</p>
 
                         <h2
                             id='taste-title'
@@ -35,7 +35,7 @@ export const TasteSection: FC = (): ReactNode => {
                     </Reveal>
 
                     <Reveal delay={120} className='lg:pt-14'>
-                        <p className='max-w-[40ch] text-[16.5px] leading-[1.55] tracking-[-0.01em] text-paper/70 sm:text-[18px]'>
+                        <p className='max-w-[40ch] text-[16.5px] leading-[1.55] tracking-[-0.01em] text-paper/75 sm:text-[18px]'>
                             {tasteCopy.body}
                         </p>
 
@@ -56,7 +56,7 @@ export const TasteSection: FC = (): ReactNode => {
 
                 <Reveal delay={160}>
                     <div className='mt-12 border-t border-paper/15 pt-6 sm:mt-16'>
-                        <p className='eyebrow text-paper/45'>{tasteCopy.rolesLabel}</p>
+                        <p className='eyebrow text-paper/55'>{tasteCopy.rolesLabel}</p>
 
                         <ul className='mt-4 flex flex-wrap gap-2'>
                             {shopTypes.map((shop) => (
@@ -71,14 +71,20 @@ export const TasteSection: FC = (): ReactNode => {
                     </div>
                 </Reveal>
 
-                <div className='mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-[8px] bg-paper/15 sm:grid-cols-3'>
+                <div className='mt-14 grid grid-cols-1 sm:grid-cols-3'>
                     {tasteCopy.stats.map((stat, index) => (
-                        <Reveal key={stat.label} delay={index * 80}>
-                            <div className='h-full bg-iris px-2 py-6 sm:px-6 sm:py-7'>
+                        <Reveal key={stat.label} delay={index * 80} className='h-full'>
+                            <div
+                                className={[
+                                    'h-full border-t border-paper/20 py-6',
+                                    index === 0 ? 'sm:pr-6' : index === 2 ? 'sm:pl-6' : 'sm:px-6',
+                                    index > 0 ? 'sm:border-l sm:border-paper/20' : ''
+                                ].join(' ')}
+                            >
                                 <p className='font-heading text-[clamp(2.2rem,3.2vw,3rem)] leading-none tracking-[-0.045em] text-paper'>
                                     {stat.value}
                                 </p>
-                                <p className='mt-3 max-w-[22ch] text-[13.5px] leading-snug text-paper/60'>
+                                <p className='mt-3 max-w-[22ch] text-[13.5px] leading-snug text-paper/70'>
                                     {stat.label}
                                 </p>
                             </div>

@@ -102,7 +102,7 @@ export const SiteFooter: FC = (): ReactNode => {
                                     href={link.href}
                                     target='_blank'
                                     rel='noopener noreferrer'
-                                    className='group inline-flex items-center gap-1 text-[12.5px] text-ink/40 transition-colors hover:text-teal-deep'
+                                    className='group inline-flex items-center gap-1 text-[12.5px] text-ink/50 transition-colors hover:text-teal-deep'
                                 >
                                     {link.label}
                                     <ArrowUpRight
@@ -147,7 +147,7 @@ export const SiteFooter: FC = (): ReactNode => {
                     </ul>
                 </div>
 
-                <div className='flex flex-col gap-2 border-t border-ink/10 py-6 text-[11px] tracking-[0.04em] text-ink/35 sm:flex-row sm:items-center sm:justify-between'>
+                <div className='flex flex-col gap-2 border-t border-ink/10 py-6 text-[11px] tracking-[0.04em] text-ink/45 sm:flex-row sm:items-center sm:justify-between'>
                     <p>{footerCopy.copyright}</p>
                     <p className='font-mono text-[10.5px] tracking-[0.1em] uppercase'>Made in India</p>
                     <p>{footerCopy.note}</p>

@@ -39,10 +39,10 @@ export const ExpertiseCollage: FC = (): ReactNode => {
             ref={sectionRef}
             id='manifesto'
             aria-labelledby='manifesto-title'
-            className='relative isolate h-[280vh] bg-paper'
+            className='relative isolate h-auto bg-paper py-20 sm:h-[280vh] sm:py-0'
             style={{ '--p': 0.16 } as CSSProperties}
         >
-            <div className='sticky top-0 flex h-[100svh] items-center justify-center overflow-hidden'>
+            <div className='relative flex min-h-0 items-center justify-center overflow-hidden sm:sticky sm:top-0 sm:h-[100svh]'>
                 <div aria-hidden className='pointer-events-none absolute inset-0'>
                     <div className='absolute top-1/2 left-1/2 h-[70vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(200,225,221,0.4),transparent_72%)] blur-3xl' />
                 </div>
@@ -71,8 +71,8 @@ export const ExpertiseCollage: FC = (): ReactNode => {
                             className='collage-tile h-full w-full rounded-[6px] shadow-[0_18px_50px_-24px_rgba(16,33,41,0.45)]'
                         />
 
-                        {index === 3 ? (
-                            <span className='absolute inset-x-3 bottom-3 rounded-[4px] border border-paper/20 bg-night/55 px-2.5 py-1.5 text-[9.5px] leading-tight tracking-[0.06em] text-paper/85 backdrop-blur-[2px]'>
+                        {index === 5 ? (
+                            <span className='absolute inset-x-3 bottom-3 rounded-[4px] border border-paper/20 bg-night/55 px-2.5 py-1.5 text-[10px] leading-tight tracking-[0.04em] text-paper/85 backdrop-blur-[2px]'>
                                 Order #1042 accepted
                             </span>
                         ) : null}
@@ -118,7 +118,7 @@ export const ExpertiseCollage: FC = (): ReactNode => {
 
                 <div
                     aria-hidden
-                    className='absolute bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-1.5 text-[10px] tracking-[0.18em] text-ink/30 uppercase'
+                    className='absolute bottom-6 left-1/2 hidden -translate-x-1/2 items-center gap-1.5 text-[10px] tracking-[0.18em] text-ink/30 uppercase sm:flex'
                 >
                     <span>01</span>
                     <span className='h-px w-6 bg-ink/20' />

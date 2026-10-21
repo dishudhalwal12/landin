@@ -550,6 +550,12 @@ html {
     scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
 section[id] {
     scroll-margin-top: 6rem;
 }
@@ -786,17 +792,28 @@ html.lenis body {
     }
 }
 
-/* Painted panel: layered colour fields standing in for editorial artwork */
+/* Painted panel: a poster-like composition built from colour fields, a sun
+   disc and a horizon. No external artwork is loaded. */
 @utility panel-art {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    background-color: var(--art-base, #2f6b6e);
+    background-color: var(--art-c, #0d2a2e);
     background-image:
-        radial-gradient(64% 58% at 24% 16%, color-mix(in srgb, var(--art-a, #c8e1dd) 72%, transparent), transparent 64%),
-        radial-gradient(58% 54% at 80% 24%, color-mix(in srgb, var(--art-b, #c8bcae) 62%, transparent), transparent 66%),
-        radial-gradient(88% 78% at 48% 118%, color-mix(in srgb, var(--art-c, #0d2a2e) 92%, transparent), transparent 74%),
-        linear-gradient(158deg, color-mix(in srgb, var(--art-base, #2f6b6e) 88%, white), var(--art-c, #0d2a2e) 96%);
+        radial-gradient(
+            circle closest-side at var(--sun-x, 31%) var(--sun-y, 34%),
+            var(--art-a, #c8e1dd) 0 32%,
+            color-mix(in srgb, var(--art-a, #c8e1dd) 26%, transparent) 33%,
+            transparent 62%
+        ),
+        linear-gradient(
+            to bottom,
+            transparent 50%,
+            color-mix(in srgb, var(--art-c, #0d2a2e) 34%, transparent) 70%,
+            color-mix(in srgb, var(--art-c, #0d2a2e) 82%, transparent) 100%
+        ),
+        radial-gradient(72% 62% at 84% 4%, color-mix(in srgb, var(--art-b, #c8bcae) 52%, transparent), transparent 66%),
+        linear-gradient(166deg, var(--art-base, #2f6b6e), var(--art-c, #0d2a2e));
 
     &::before {
         content: '';
@@ -804,12 +821,12 @@ html.lenis body {
         inset: 0;
         z-index: 1;
         pointer-events: none;
-        opacity: 0.32;
-        background-image: radial-gradient(currentColor 1px, transparent 1.15px);
-        background-size: 6px 6px;
-        color: rgb(251 250 246 / 0.5);
-        -webkit-mask-image: linear-gradient(155deg, #000 0%, #000 48%, transparent 88%);
-        mask-image: linear-gradient(155deg, #000 0%, #000 48%, transparent 88%);
+        opacity: 0.14;
+        background-image: radial-gradient(currentColor 1px, transparent 1.1px);
+        background-size: 7px 7px;
+        color: rgb(251 250 246 / 0.6);
+        -webkit-mask-image: linear-gradient(160deg, #000 0%, #000 42%, transparent 80%);
+        mask-image: linear-gradient(160deg, #000 0%, #000 42%, transparent 80%);
     }
 
     &::after {
@@ -819,18 +836,18 @@ html.lenis body {
         z-index: 2;
         pointer-events: none;
         background-image:
-            repeating-linear-gradient(102deg, rgb(255 255 255 / 0.05) 0 2px, transparent 2px 9px),
-            radial-gradient(120% 100% at 50% 0%, transparent 40%, rgb(12 20 20 / 0.45) 100%);
+            repeating-linear-gradient(101deg, rgb(255 255 255 / 0.05) 0 1px, transparent 1px 8px),
+            radial-gradient(120% 100% at 50% 4%, transparent 38%, rgb(12 20 20 / 0.5) 100%);
         mix-blend-mode: soft-light;
     }
 }
 
-.art-teal { --art-base: #2f6b6e; --art-a: #c8e1dd; --art-b: #c8bcae; --art-c: #0d2a2e; }
-.art-crimson { --art-base: #7b2f2c; --art-a: #eed3b6; --art-b: #d9b26a; --art-c: #2a1210; }
-.art-sage { --art-base: #6f8f86; --art-a: #e9e6dc; --art-b: #a5beba; --art-c: #1c2f2c; }
-.art-gold { --art-base: #8a6a3a; --art-a: #efe0bf; --art-b: #c8bcae; --art-c: #2a1f12; }
-.art-night { --art-base: #16323a; --art-a: #387478; --art-b: #a5beba; --art-c: #0a161a; }
-.art-clay { --art-base: #9a7f6a; --art-a: #ece5d6; --art-b: #c8bcae; --art-c: #33241c; }
+.art-teal { --art-base: #2f6b6e; --art-a: #c8e1dd; --art-b: #c8bcae; --art-c: #0d2a2e; --sun-x: 30%; --sun-y: 33%; }
+.art-crimson { --art-base: #7b2f2c; --art-a: #eed3b6; --art-b: #d9b26a; --art-c: #2a1210; --sun-x: 68%; --sun-y: 30%; }
+.art-sage { --art-base: #6f8f86; --art-a: #e9e6dc; --art-b: #a5beba; --art-c: #1c2f2c; --sun-x: 36%; --sun-y: 30%; }
+.art-gold { --art-base: #8a6a3a; --art-a: #efe0bf; --art-b: #c8bcae; --art-c: #2a1f12; --sun-x: 72%; --sun-y: 27%; }
+.art-night { --art-base: #16323a; --art-a: #387478; --art-b: #a5beba; --art-c: #0a161a; --sun-x: 70%; --sun-y: 34%; }
+.art-clay { --art-base: #9a7f6a; --art-a: #ece5d6; --art-b: #c8bcae; --art-c: #33241c; --sun-x: 27%; --sun-y: 40%; }
 
 /* A painted band with copy laid over it */
 @utility band-painted {
@@ -894,11 +911,50 @@ html.lenis body {
         outline-offset: 2px;
     }
 }
+/* On phones the collage becomes a plain stacked statement instead of a pinned scene */
+@media (max-width: 639px) {
+    .collage-line {
+        opacity: 1 !important;
+        transform: none !important;
+        grid-area: auto !important;
+    }
+}
+
 /* Scroll-scrubbed type must stay readable when motion is reduced */
 @media (prefers-reduced-motion: reduce) {
     .collage-line,
     .scrub-word {
         opacity: 1 !important;
         transform: none !important;
+    }
+
+    .collage-line {
+        grid-area: auto !important;
+    }
+
+    /* No pinned scene when motion is reduced: collapse to a static statement */
+    #manifesto {
+        height: auto !important;
+    }
+
+    #manifesto > div {
+        position: relative !important;
+        height: auto !important;
+        padding-block: 6rem;
+    }
+
+    #manifesto > div > div[aria-hidden] {
+        display: none !important;
+    }
+
+    /* The scrubbed headline is already fully visible: drop the scroll runway */
+    [data-motion='scrub'] {
+        height: auto !important;
+    }
+
+    [data-motion='scrub'] > div {
+        position: relative !important;
+        height: auto !important;
+        padding-block: 5rem;
     }
 }

@@ -129,9 +129,12 @@ export const SiteNav: FC = (): ReactNode => {
             <div
                 id='mobile-menu'
                 aria-hidden={!open}
+                inert={!open}
                 className={cn(
                     'overflow-hidden border-t border-ink/10 bg-paper transition-[max-height,opacity] duration-300 lg:hidden',
-                    open ? 'max-h-[520px] opacity-100' : 'pointer-events-none max-h-0 opacity-0'
+                    open
+                        ? 'max-h-[520px] opacity-100 shadow-[0_24px_40px_-28px_rgba(16,33,41,0.35)]'
+                        : 'pointer-events-none max-h-0 opacity-0'
                 )}
             >
                 <nav aria-label='Mobile' className='px-5 py-4 sm:px-8'>

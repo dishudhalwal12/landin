@@ -1,7 +1,6 @@
 import type { FC, ReactNode } from 'react'
 
 import { ArrowUpRight, MessageCircle } from 'lucide-react'
-import { ArtworkPanel } from '@/components/landing/artwork-panel'
 import { CtaButton } from '@/components/generals/cta-button'
 import { Reveal } from '@/components/generals/reveal'
 import { finalCtaCopy } from '@/constants/copy'
@@ -14,8 +13,14 @@ export const CtaSection: FC = (): ReactNode => {
             aria-labelledby='cta-title'
             className='grain relative isolate overflow-hidden bg-night text-paper'
         >
-            <ArtworkPanel tone='night' className='absolute inset-0 -z-10' />
-            <div aria-hidden className='absolute inset-0 -z-10 bg-night/55' />
+            <div
+                aria-hidden
+                className='pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(58%_48%_at_16%_18%,rgba(56,116,120,0.38),transparent_72%),radial-gradient(46%_42%_at_86%_78%,rgba(200,225,221,0.12),transparent_72%),radial-gradient(70%_60%_at_50%_120%,rgba(10,22,26,0.9),transparent_70%)]'
+            />
+            <div
+                aria-hidden
+                className='pointer-events-none absolute inset-0 -z-10 opacity-[0.12] [background-image:radial-gradient(rgba(251,250,246,0.55)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(ellipse_at_50%_40%,#000,transparent_72%)]'
+            />
 
             <div className='relative mx-auto flex w-full max-w-[1439px] flex-col items-center px-5 py-24 text-center sm:px-8 sm:py-32 lg:py-40'>
                 <Reveal className='flex flex-col items-center'>
@@ -23,13 +28,13 @@ export const CtaSection: FC = (): ReactNode => {
                         <span className='size-1.5 rounded-full bg-night/60' />
                     </span>
 
-                    <p className='eyebrow text-paper/45'>Open today</p>
+                    <p className='eyebrow text-paper/55'>Open today</p>
 
                     <h2 id='cta-title' className='display-xl mt-6 max-w-[15ch] text-paper text-balance'>
                         {finalCtaCopy.title}
                     </h2>
 
-                    <p className='mt-5 max-w-[46ch] text-[16.5px] leading-[1.5] tracking-[-0.01em] text-paper/60 sm:text-[18px]'>
+                    <p className='mt-5 max-w-[46ch] text-[16.5px] leading-[1.5] tracking-[-0.01em] text-paper/65 sm:text-[18px]'>
                         {finalCtaCopy.body}
                     </p>
 
@@ -52,19 +57,10 @@ export const CtaSection: FC = (): ReactNode => {
                         </CtaButton>
                     </div>
 
-                    <p className='mt-6 text-[12.5px] tracking-[-0.01em] text-paper/40'>
+                    <p className='mt-6 text-[12.5px] tracking-[-0.01em] text-paper/50'>
                         No card. No new number. Your shop stays yours.
                     </p>
                 </Reveal>
-            </div>
-
-            <div
-                aria-hidden
-                className='pointer-events-none relative -mb-[2vw] flex justify-center overflow-hidden select-none'
-            >
-                <span className='font-heading text-[19vw] leading-[0.72] tracking-[-0.06em] text-paper/[0.05] lowercase'>
-                    dukaan.ai
-                </span>
             </div>
         </section>
     )

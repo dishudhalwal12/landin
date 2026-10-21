@@ -99,7 +99,7 @@ export const WhatsAppChat: FC = (): ReactNode => {
                         ref={logRef}
                         role='log'
                         aria-label='Sample WhatsApp conversation'
-                        className='no-scrollbar relative flex h-[430px] flex-col gap-2.5 overflow-y-auto px-3 py-4'
+                        className='no-scrollbar relative flex h-[380px] flex-col gap-2.5 overflow-y-auto px-3 py-4 [mask-image:linear-gradient(to_bottom,transparent_2px,#000_36px)]'
                     >
                         <div aria-hidden className='dot-grid-inverse pointer-events-none absolute inset-0 opacity-[0.14]' />
 
