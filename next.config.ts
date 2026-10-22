@@ -19,6 +19,24 @@ const nextConfig: NextConfig = {
             { source: '/jobs/:path*', destination: '/', permanent: false }
         ]
     },
+    async headers() {
+        return [
+            {
+                source: '/framer/:path*',
+                headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }]
+            },
+            {
+                source: '/vendor/:path*',
+                headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }]
+            },
+            {
+                source: '/assets/:path*',
+                headers: [
+                    { key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }
+                ]
+            }
+        ]
+    },
     async rewrites() {
         return {
             beforeFiles: [{ source: '/', destination: '/landing.html' }],
