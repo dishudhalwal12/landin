@@ -2,7 +2,7 @@ import type { SiteConfig } from '@/types'
 
 export const APP_URL = 'https://dukaan-ai-hypnexis.vercel.app'
 export const GITHUB_URL = 'https://github.com/dishudhalwal12/dukaan.ai'
-export const WHATSAPP_NUMBER = '919235436578'
+export const WHATSAPP_NUMBER = '919256487182'
 export const WHATSAPP_MESSAGE = 'Hi Dukaan.AI, I want to set up my store.'
 
 export const whatsAppHref = (message: string = WHATSAPP_MESSAGE): string =>
