@@ -1,6 +1,6 @@
 (() => {
   const app = 'https://dukaan-ai-hypnexis.vercel.app'
-  const whatsapp = 'https://wa.me/919256487182'
+  const whatsapp = 'https://wa.me/919256487182?text=%2Fhey'
   const demo = 'https://youtu.be/hz5WBK9tprw'
   const title = 'Dukaan.AI — the shop around the corner, on WhatsApp'
   const heroVideoId = 'hz5WBK9tprw'
