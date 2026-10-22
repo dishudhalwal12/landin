@@ -26,3 +26,8 @@ next-env.d.ts
 .projectmem/watch.pid
 .projectmem/watch.log
 .projectmem/structure.json
+
+# Local source dump and tooling caches
+/replicate-this/
+/.codegraph/
+/scripts/

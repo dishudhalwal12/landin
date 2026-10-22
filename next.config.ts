@@ -12,6 +12,19 @@ const nextConfig: NextConfig = {
         optimizePackageImports: ['lucide-react'],
         cpus: 1,
         workerThreads: false
+    },
+    async redirects() {
+        return [
+            { source: '/research/:path*', destination: '/', permanent: false },
+            { source: '/jobs/:path*', destination: '/', permanent: false }
+        ]
+    },
+    async rewrites() {
+        return {
+            beforeFiles: [{ source: '/', destination: '/landing.html' }],
+            afterFiles: [],
+            fallback: []
+        }
     }
 }
 
